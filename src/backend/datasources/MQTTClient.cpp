@@ -1153,7 +1153,7 @@ void MQTTClient::save(QXmlStreamWriter* writer) const {
 	writer->writeAttribute(QStringLiteral("host"), m_client->hostname());
 	writer->writeAttribute(QStringLiteral("port"), QString::number(m_client->port()));
 	writer->writeAttribute(QStringLiteral("username"), m_client->username());
-	writer->writeAttribute(QStringLiteral("password"), m_client->password());
+	// writer->writeAttribute(QStringLiteral("password"), m_client->password()); // don't save the password!
 	writer->writeAttribute(QStringLiteral("clientId"), m_client->clientId());
 	writer->writeAttribute(QStringLiteral("useRetain"), QString::number(m_MQTTRetain));
 	writer->writeAttribute(QStringLiteral("useWill"), QString::number(m_MQTTWill.enabled));
