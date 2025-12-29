@@ -517,11 +517,20 @@ void NumberSpinBox::valueChanged() {
 }
 
 void NumberSpinBox::setInvalid(const QString& str) {
-	if (!str.isEmpty())
+	if (!str.isEmpty()) {
 		SET_WARNING_PALETTE
-	else
+		if (!m_hasError) {
+			m_originalToolTip = toolTip();
+			m_hasError = true;
+		}
+		setToolTip(str);
+	} else {
 		setPalette(qApp->palette());
-	setToolTip(str);
+		if (m_hasError) {
+			setToolTip(m_originalToolTip);
+			m_hasError = false;
+		}
+	}
 }
 
 void NumberSpinBox::setInvalid(Errors e) {

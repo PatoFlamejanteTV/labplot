@@ -1,0 +1,3 @@
+## 2024-05-22 - [Preserve Tooltips in Validation Widgets]
+**Learning:** In Qt widgets like `NumberSpinBox`, validation logic often overwrites the main tooltip with an error message. Simply clearing the error message often results in clearing the tooltip entirely, causing the loss of original context/help text provided to the user.
+**Action:** When implementing custom validation feedback that uses tooltips for error messages, always cache the original tooltip before displaying the error, and explicitly restore it when the error state is resolved. Avoid clearing the tooltip blindly when validation succeeds.

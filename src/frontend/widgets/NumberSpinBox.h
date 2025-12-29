@@ -113,6 +113,9 @@ private:
 	double m_maximumNotEqual{std::numeric_limits<double>::max()};
 	double m_minimumNotEqual{std::numeric_limits<double>::lowest()};
 
+	bool m_hasError{false};
+	QString m_originalToolTip;
+
 	friend class SpinBoxTest;
 };
 
